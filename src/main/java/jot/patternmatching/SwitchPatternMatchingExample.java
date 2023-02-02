@@ -1,55 +1,66 @@
 package jot.patternmatching;
 
 public class SwitchPatternMatchingExample {
-
-	public static void printGreeting(Employee employee) {
-
-		// employee can be directly checked for type and casted
-		switch (employee) {
-		
-		// the variable can even be used for another boolean expression in a when clause
-		case PremiumEmployee pe when pe.getName().equals("Kurt") -> System.out.println(pe.getName() + " is the best!");
-
-		case PremiumEmployee pe -> System.out.println("Hello PremiumEmployee " + pe.getName() + "!");
-
-		case SecondClassEmployee sce -> System.out.println("Hello SecondClassEmployee " + sce.getName() + "!");
-
-		// checking for the super type. The enhanced switch statement must cover all types of the hierarchy.
-		// If you miss a type you will get a compile error. 
-		case Employee e -> System.out.println("Hello Employee " + e.getName() + "!");
+	
+	public static void twitter(Bird bird) {
+		if (bird instanceof Hummingbird) {
+			Hummingbird humm = (Hummingbird)bird;
+			System.out.println("Hummingbird twitters: "+humm.twitter());
+		} else if (bird instanceof Thunderbird ) {
+			Thunderbird thunder = (Thunderbird)bird;
+			System.out.println("Thunderbird twitters: "+thunder.twitter());
 		}
 	}
-
+	
+	public static void switchTwitter(Bird bird) {
+		switch( bird ) {
+			case Hummingbird humm -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
+			case Thunderbird thunder -> 	System.out.println("Thunderbird twitters: "+thunder.twitter());
+		}
+	}
+	
 }
 
-// Root of the type hierarchy
-class Employee {
-	private String name;
 
-	public String getName() {
-		return name;
-	}
-
-	public Employee(String name) {
-		this.name = name;
-	}
-
+sealed interface Bird permits Thunderbird, Hummingbird {
+	
+	String twitter();
+	
+	int age();
+	
 }
 
-// A subtype
-class PremiumEmployee extends Employee {
+final class Hummingbird implements Bird {
 
-	public PremiumEmployee(String name) {
-		super(name);
+	private int age;
+	
+	public Hummingbird(int age) {
+		this.age = age; 
 	}
-
+	
+	public int age() {
+		return age;
+	}
+	
+	public String twitter() {
+		return "hummmmm";
+	}
 }
 
-// Another Subtype
-class SecondClassEmployee extends Employee {
+final class Thunderbird implements Bird {
+	
+	private int age;
+	
+	public Thunderbird(int age) {
+		this.age = age; 
+	}
+	
+	public int age() {
+		return age;
+	}
 
-	public SecondClassEmployee(String name) {
-		super(name);
+	public String twitter() {
+		return "";
 	}
 
 }
