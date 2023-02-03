@@ -19,6 +19,14 @@ public class SwitchPatternMatchingExample {
 		}
 	}
 	
+	public static void switchTwitterForYoungBirds(Bird bird) {
+		switch( bird ) {
+			case Hummingbird humm when humm.age() < 3 -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
+			case Thunderbird thunder when thunder.age() < 5 -> 	System.out.println("Thunderbird twitters: "+thunder.twitter());
+			default -> System.out.println("Bird is too old to twitter.");
+		}
+	}
+	
 }
 
 
@@ -60,7 +68,7 @@ final class Thunderbird implements Bird {
 	}
 
 	public String twitter() {
-		return "";
+		return "thunder!";
 	}
 
 }
