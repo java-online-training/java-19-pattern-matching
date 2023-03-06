@@ -1,8 +1,16 @@
 package jot.patternmatching;
 
 public class SwitchPatternMatchingExample {
-	
+
 	public static void twitter(Bird bird) {
+ 		if (bird instanceof Hummingbird humm ) {
+			System.out.println("Hummingburd twitters: "+humm.twitter() );
+  		} else if (bird instanceof Thunderbird thunder) {
+			System.out.println("Thunderbird twitters: "+thunder.twitter());
+  		}
+	}
+	
+	public static void twitterOld(Bird bird) {
 		if (bird instanceof Hummingbird) {
 			Hummingbird humm = (Hummingbird)bird;
 			System.out.println("Hummingbird twitters: "+humm.twitter());
