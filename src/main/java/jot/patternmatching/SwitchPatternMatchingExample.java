@@ -23,14 +23,14 @@ public class SwitchPatternMatchingExample {
 	public static void switchTwitter(Bird bird) {
 		switch( bird ) {
 			case Hummingbird humm -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
-			case Thunderbird thunder -> 	System.out.println("Thunderbird twitters: "+thunder.twitter());
+			case Thunderbird thunder -> System.out.println("Thunderbird twitters: "+thunder.twitter());
 		}
 	}
 	
 	public static void switchTwitterForYoungBirds(Bird bird) {
 		switch( bird ) {
 			case Hummingbird humm when humm.age() < 3 -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
-			case Thunderbird thunder when thunder.age() < 5 -> 	System.out.println("Thunderbird twitters: "+thunder.twitter());
+			case Thunderbird thunder when thunder.age() < 5 -> System.out.println("Thunderbird twitters: "+thunder.twitter());
 			default -> System.out.println("Bird is too old to twitter.");
 		}
 	}
