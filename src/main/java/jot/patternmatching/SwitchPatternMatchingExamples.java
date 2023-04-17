@@ -1,17 +1,16 @@
 package jot.patternmatching;
 
-public class SwitchPatternMatchingExamples {
+public class SwitchPatternMatchingExample {
 	
-	// instanceof with pattern matching
 	public static void twitter(Bird bird) {
 		if (bird instanceof Hummingbird humm ) {
-		  System.out.println("Hummingburd twitters: "+humm.twitter() );
+	  	System.out.println("Hummingburd twitters: "+humm.twitter() );
 		} else if (bird instanceof Thunderbird thunder) {
-		  System.out.println("Thunderbird twitters: "+thunder.twitter());
+	  	System.out.println("Thunderbird twitters: "+thunder.twitter());
 		}
-	  }
+  	}
 
-	// instanceof before pattern matching
+
 	public static void twitterOld(Bird bird) {
 		if (bird instanceof Hummingbird) {
 			Hummingbird humm = (Hummingbird)bird;
@@ -22,15 +21,13 @@ public class SwitchPatternMatchingExamples {
 		}
 	}
 	
-	// switch statement with pattern matching
 	public static void switchTwitter(Bird bird) {
 		switch( bird ) {
 			case Hummingbird humm -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
-			case Thunderbird thunder -> 	System.out.println("Thunderbird twitters: "+thunder.twitter());
+			case Thunderbird thunder ->	System.out.println("Thunderbird twitters: "+thunder.twitter());
 		}
 	}
 	
-	// switch  with guarded statements
 	public static void switchTwitterForYoungBirds(Bird bird) {
 		switch( bird ) {
 			case Hummingbird humm when humm.age() < 3 -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
@@ -91,5 +88,4 @@ final class Thunderbird implements Bird {
 	public String twitter() {
 		return "thunder!";
 	}
-
 }
