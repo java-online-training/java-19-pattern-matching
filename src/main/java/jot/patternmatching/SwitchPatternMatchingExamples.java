@@ -1,6 +1,6 @@
 package jot.patternmatching;
 
-public class SwitchPatternMatchingExample {
+public class SwitchPatternMatchingExamples {
 	
 	public static void twitter(Bird bird) {
 		if (bird instanceof Hummingbird humm ) {
@@ -9,7 +9,6 @@ public class SwitchPatternMatchingExample {
 	  	System.out.println("Thunderbird twitters: "+thunder.twitter());
 		}
   	}
-
 
 	public static void twitterOld(Bird bird) {
 		if (bird instanceof Hummingbird) {
@@ -36,7 +35,6 @@ public class SwitchPatternMatchingExample {
 		}
 	}
 
-	// switch statement with null case
 	public static void switchTwitterWithNullCase(Bird bird) {
 		switch( bird ) {
 			case Hummingbird humm -> System.out.println("Hummingbird twitters: "+ humm.twitter() );
